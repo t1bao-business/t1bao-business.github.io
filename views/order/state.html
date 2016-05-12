@@ -1,0 +1,31 @@
+<button class="btn btn-warning disabled" ng-show="order.state === 'CANCELLED'"
+  >已取消
+</button>
+<button class="btn btn-warning" ng-show="showState(order, 'CANCELLED')"
+        ng-click="state(order.id, 'CANCELLED')"
+  >拒绝
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'ACCEPTED')"
+        ng-click="state(order.id, 'ACCEPTED')">接单
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'DELIVERED')"
+        ng-click="state(order.id, 'DELIVERED')">发货
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'RECEIVED')"
+        ng-click="state(order.id, 'RECEIVED')">已经发货
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'UNREACHABLE')"
+        ng-click="state(order.id, 'UNREACHABLE')">无法送达
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'RECEIVED')"
+        ng-click="state(order.id, 'RECEIVED')">已收货
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'RECEIVED')"
+        ng-click="state(order.id, 'RECEIVED')">已收货
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'RECEIVED')"
+        ng-click="state(order.id, 'RECEIVED')">已收货
+</button>
+<button class="btn btn-success" ng-show="showState(order, 'RECEIVED')"
+        ng-click="state(order.id, 'RECEIVED')">已收货
+</button>

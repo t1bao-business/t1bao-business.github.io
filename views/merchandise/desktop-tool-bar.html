@@ -1,0 +1,70 @@
+<div class="clearfix hidden-xs hidden">
+  <div class="dropdown-group">
+    <div class="dropdown navbar-left">
+      <button class="btn btn-default dropdown-toggle" type="button" id="category-dropdown" data-toggle="dropdown" aria-expanded="true">
+        分类
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="category-dropdown">
+        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="selectCategory()">全部分类</a>
+        </li>
+
+        <li role="presentation" ng-repeat="category in categories"><a role="menuitem" tabindex="-1" ng-click="selectCategory(category)">{{category.name}}</a>
+        </li>
+      </ul>
+      <div class="navbar-right">
+        <span class="label label-success selected">{{categoryName || '全部分类'}}</span>
+
+      </div>
+
+    </div>
+    <div class="dropdown navbar-left">
+      <button class="btn btn-default dropdown-toggle" type="button" id="order-dropdown" data-toggle="dropdown" aria-expanded="true">
+        排序
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="order-dropdown">
+        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="selectOrder({})">默认排序</a></li>
+
+        <li role="presentation" ng-repeat="order in orders">
+          <a role="menuitem" tabindex="-1" ng-click="selectOrder(order)">{{order.name}}</a>
+        </li>
+      </ul>
+      <div class="navbar-right">
+        <span class="label label-info selected">{{orderName|| '默认排序'}}</span>
+      </div>
+    </div>
+
+    <div class="dropdown navbar-left">
+      <button class="btn btn-default dropdown-toggle" type="button" id="online-dropdown" data-toggle="dropdown" aria-expanded="true">
+        上下线
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="online-dropdown">
+        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="selectOnline('all')">全部</a></li>
+
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" ng-click="selectOnline('online')">上线</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" ng-click="selectOnline('offline')">下线</a>
+        </li>
+      </ul>
+      <div class="navbar-right">
+        <span class="label label-info selected">{{onlineString}}</span>
+      </div>
+    </div>
+  </div>
+  <form class="navbar-form navbar-right">
+    <div class="form-group">
+      <input type="text" class="form-control form-control-sm" id="q" ng-model="q" name="q" placeholder="搜索商品">
+    </div>
+    <div class="form-group no-line">
+      <button type="button" class="btn btn-info search navbar-left" ng-click="search()">搜索</button>
+      <a class="btn btn-primary visible-xs-inline-block " href="#/merchandise/add">
+        添加商品</a>
+      <a class="btn btn-primary hidden-xs" data-toggle="modal" data-target="#add" ng-click="openAdd()">
+        添加商品</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<div class="header-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-3">
+      </div>
+      <div class="col-md-6 col-xs-6">
+        更多
+      </div>
+      <div class="col-md-3 col-xs-3">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="body-bar">
+  <div class="tab-bar">
+    <div class="row">
+      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'merchandise'}">
+        <p>
+          <a href="#/merchandise/home">
+            商品
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'category'}">
+        <p>
+          <a href="#/category/home">
+            分类
+          </p>
+        </div>
+        <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'barcode'}">
+          <p>
+            <a href="#/barcode/home">
+              条码库
+            </a>
+        </p>
+      </div>
+      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'more'}">
+        <p>
+          <a href="#/merchandise/more">
+              更多
+            </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="list margin-top">
+    <a class="list-select-item" href="#/merchandise/home">
+        销量排行
+      </a>
+    <a class="list-select-item" href="#/merchandise/home">
+        价格排行
+      </a>
+  </div>
+</div>
+<div ng-include src="'views/footer.html'"></div>

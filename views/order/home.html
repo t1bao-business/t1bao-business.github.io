@@ -1,0 +1,48 @@
+<div class="header-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-2"></div>
+      <div class="col-md-6 col-xs-8">订单</div>
+      <div class="col-md-3 col-xs-2"></div>
+    </div>
+  </div>
+</div>
+
+<div class="body-bar">
+  <div class="tab-bar">
+    <div class="row">
+      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'accepted'}">
+        <p>
+          <a href="#/order/home">
+            待接收
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'delivered'}">
+        <p>
+          <a href="#/order/state/delivered/1">
+            已发货
+          </p>
+        </div>
+        <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'finished'}">
+          <p>
+            <a href="#/order/state/finished/1">
+              已完成
+            </a>
+          </p>
+        </div>
+        <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'more'}">
+          <p>
+            <a href="#/order/more">
+              更多
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div ng-include src="'views/order/mobile-list.html'" ng-show="orders && orders.length" class="tab-body-bar order-list  margin-top"></div>
+    <div ng-include src="'views/order/not-found.html'" ng-show="orders && !orders.length" class="tab-body-bar"></div>
+    <div ng-include src="'views/order/loading.html'" ng-show="progressing" class="tab-body-bar"></div>
+
+  </div>
+  <div ng-include src="'views/footer.html'"></div>

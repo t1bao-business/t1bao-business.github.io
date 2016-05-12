@@ -1,0 +1,38 @@
+<div ng-include src="'views/navbar.html'"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="list-group">
+        <div ng-include src="'views/sidebar.html'"></div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="row mini-header">
+        <h4 class="text-center">条码管理
+          <form class="navbar-form form-controller navbar-right hidden-xs">
+            <p>
+              <a class="btn btn-primary" data-toggle="modal"
+                 data-target="#query" ng-click="openQuery()">
+                查询条码</a>
+            </p>
+          </form>
+        </h4>
+      </div>
+      <div class="row mobile-main">
+        <div class="row hidden-xs" ng-include src="'views/barcode/desktop-list.html'"></div>
+        <div class="mobile-list visible-xs" ng-include src="'views/barcode/mobile-list.html'"></div>
+      </div>
+      <div ng-include src="'views/pagination.html'"></div>
+
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'views/barcode/bindMerchandise.html'"></div>
+<div ng-include src="'views/barcode/edit.html'"></div>
+<div ng-include src="'views/barcode/query.html'"></div>
+<div ng-include src="'views/modal.html'"></div>
+
+</div>

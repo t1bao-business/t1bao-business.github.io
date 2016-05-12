@@ -1,0 +1,30 @@
+<div ng-include src="'views/navbar.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="list-group">
+        <div ng-include src="'views/sidebar.html'"></div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <h4 class="text-center">支付管理</h4>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a data-toggle="tab" aria-controls="weixin">微信支付</a></li>
+        <li role="presentation"><a data-toggle="tab" aria-controls="alipay">支付宝支付</a></li>
+        <li role="presentation"><a data-toggle="tab" aria-controls="others">其它</a></li>
+      </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" name="weixin">
+          <div ng-include src="'views/pay/weixin-form.html'"></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" name="alipay">
+          <div ng-include src="'views/pay/alipay-form.html'"></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" name="others">
+          <p>暂不支付其它方式的支付形式</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-include src="'views/modal.html'"></div>

@@ -1,0 +1,28 @@
+<div class="header-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-2">
+        <a href="#/merchandise/home">
+          <i class="fa fa-arrow-left"></i>
+        </a>
+      </div>
+      <div class="col-md-6 col-xs-8">商品搜索</div>
+      <div class="col-md-3 col-xs-2"></div>
+    </div>
+  </div>
+</div>
+
+<div class="body-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-xs-12 col-lg-12">
+        <div class="search">
+          <input type="text" placeholder="请输入要搜索的商品名"  id="q" ng-model="q" ng-change="search()"/>
+          <a class="btn btn-color-egg-red" ng-click="search()">搜索</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-include src="'views/merchandise/search-list.html'"></div>
+</div>
+<div ng-include src="'views/footer.html'"></div>

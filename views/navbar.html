@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid" ng-controller="NavCtrl">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed navbar-toggle-left btn-sidebar" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="">田一块</a>
+      <button class="navbar-toggle collapsed btn-user" type="button" data-toggle="collapse" data-target="#user-navbar" aria-controls="user-navbar" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-toggle-item-right" id="user-navbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#/user/dashboard">控件面板</a></li>
+        <li><a href="#/user/password">修改密码</a></li>
+      </ul>
+      <form class="navbar-form navbar-right text-right">
+        [<a href="#/user/profile">{{user.username || '用户名'}}</a>]， 您已经成功登录！&nbsp;
+        <a data-toggle="modal" ng-click="exit()" class="btn btn-sm btn-danger">退出</a>
+      </form>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
