@@ -1,8 +1,8 @@
 <div class="list list-bar"  ng-repeat="barcode in barcodes track by $index"
      class="barcode-remove-{{barcode.id}}">
-  <div class="list-text-item"><span>ID:</span>{{barcode.barcode.id}}</div>
-  <div class="list-text-item"><span>条码格式:</span>{{barcode.barcode.format}}</div>
-  <div class="list-text-item"><span>条码值:</span>{{barcode.barcode.code}}</div>
+  <div class="list-text-item"><span>ID:</span>{{barcode.barcode.id || "&nbsp;"}}</div>
+  <div class="list-text-item"><span>条码格式:</span>{{barcode.barcode.format || "&nbsp;"}}</div>
+  <div class="list-text-item"><span>条码值:</span>{{barcode.barcode.code || "&nbsp;"}}</div>
 <!--
   <div class="list-text-item"><span>商品名:</span>{{barcode.merchandise?barcode.merchandise.name: '尚未关联商品'}}</div>
   <div class="list-text-item"><span>品牌:</span>{{barcode.merchandise?barcode.merchandise.brand: '尚未关联商品'}}</div>

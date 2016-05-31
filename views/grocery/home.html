@@ -19,15 +19,15 @@
     <div class="row menu">
       <div class="col-md-4 col-xs-4">
         <a class="native-item orders" ng-click="click('orders')">
-          <i class="bubble">
-            0
+          <i class="bubble" ng-show="orders.length">
+            {{orders.length}}
           </i>
           <i class="fa fa-file-text"></i>
           <span>新订单</span>
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
-        <a class="native-item income" ng-click="click('income')">
+        <a class="native-item income disabled" ng-click="click('income')">
           <i class="fa fa-rmb"></i>
           <span>收入详情</span>
         </a>
@@ -47,16 +47,16 @@
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
-        <a class="native-item subscribers" ng-click="click('subscribers')">
-          <i class="bubble disabled">
-            12
+        <a class="native-item subscribers disabled" ng-click="click('subscribers')">
+          <i class="bubble" ng-show="subscribers.length">
+            {{subscribers.length}}
           </i>
           <i class="fa fa-users"></i>
           <span>订阅用户</span>
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
-        <a class="native-item traffic" ng-click="click('traffic')">
+        <a class="native-item traffic disabled" ng-click="click('traffic')">
           <i class="fa fa-bar-chart"></i>
           <span>流量统计</span>
         </a>
@@ -76,7 +76,7 @@
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
-        <a class="native-item payment" ng-click="click('payment')">
+        <a class="native-item payment disabled" ng-click="click('payment')">
           <i class="fa fa-credit-card"></i>
           <span>支付设置</span>
         </a>
@@ -84,18 +84,18 @@
     </div>
     <div class="row menu">
       <div class="col-md-4 col-xs-4">
-        <a class="native-item system-message" ng-click="click('messages')">
-          <i class="bubble">
-            0
+        <a class="native-item system-message disabled" ng-click="click('messages')">
+          <i class="bubble" ng-show="messages.length">
+            {{messages.length}}
           </i>
           <i class="fa fa-envelope"></i>
           <span>系统消息</span>
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
-        <a class="native-item comments" ng-click="click('comments')">
-          <i class="bubble">
-            0
+        <a class="native-item comments disabled" ng-click="click('comments')">
+          <i class="bubble" ng-show="comments.length">
+            {{comments.length}}
           </i>
           <i class="fa fa-comments"></i>
           <span>用户评论</span>
@@ -103,8 +103,8 @@
       </div>
       <div class="col-md-4 col-xs-4">
         <a class="native-item feedback" ng-click="click('feedback')">
-          <i class="bubble">
-            0
+          <i class="bubble" ng-show="feedbacks.length">
+            {{feedbacks.length}}
           </i>
           <i class="fa fa-commenting"></i>
           <span>意见反馈</span>
