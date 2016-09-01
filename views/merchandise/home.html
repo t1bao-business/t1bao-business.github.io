@@ -2,63 +2,87 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-xs-3">
-        <a ng-href="#/merchandise/add"> <i class="fa fa-plus"></i> </a>
       </div>
       <div class="col-md-6 col-xs-6">
-        <a class="btn dropdown-toggle" type="button" id="category-dropdown" data-toggle="dropdown" aria-expanded="true">
-          商品
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="category-dropdown">
-          <li role="presentation"><a role="menuitem" tabindex="-1" ng-href="#/merchandise/home">全部分类</a>
-          </li>
-
-          <li role="presentation" ng-repeat="category in categories">
-            <a role="menuitem" tabindex="-1" ng-href="#/merchandise/category/{{category.id}}">{{category.name}}</a>
-          </li>
-        </ul>
-
+        商品管理
       </div>
       <div class="col-md-3 col-xs-3">
-        <a ng-href="#/merchandise/search"> <i class="fa fa-search"></i> </a> &nbsp;
       </div>
     </div>
   </div>
 </div>
 
 <div class="body-bar">
-  <div class="tab-bar">
-    <div class="row">
-      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'merchandise'}">
-        <p>
-          <a href="#/merchandise/home">
-            商品
-          </a>
-        </p>
+  <div class="container">
+    <div class="row menu">
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item position" href="#/category/add">
+          <i class="fa fa-plus"></i>
+          <span>添加分类</span>
+        </a>
       </div>
-      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'category'}">
-        <p>
-          <a href="#/category/home">
-            分类
-          </p>
-        </div>
-        <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'barcode'}">
-          <p>
-            <a href="#/barcode/home">
-              条码库
-            </a>
-        </p>
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item settings" href="#/category/list">
+          <i class="fa fa-gear"></i>
+          <span>分类列表</span>
+        </a>
       </div>
-      <div class="col-md-3 col-xs-3" ng-class="{'active': type === 'more'}">
-        <p>
-          <a href="#/merchandise/more">
-              更多
-            </a>
-        </p>
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item preview" ng-click="click('preview')">
+          <i class="fa fa-home"></i>
+          <span>商品分类</span>
+        </a>
+      </div>
+    </div>
+    <div class="row menu">
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item merchandise" href="#/merchandise/add">
+          <i class="fa fa-plus"></i>
+          <span>添加商品</span>
+        </a>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item category" href="#/merchandise/list/1">
+          <i class="fa fa-reorder"></i>
+          <span>商品列表</span>
+        </a>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item barcode" ng-click="click('barcode')">
+          <i class="fa fa-barcode"></i>
+          <span>商品排行</span>
+        </a>
+      </div>
+    </div>
+    <div class="row menu">
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item subscribers disabled" ng-click="click('subscribers')">
+          <i class="bubble" ng-show="subscribers.length">
+            {{subscribers.length}}
+          </i>
+          <i class="fa fa-users"></i>
+          <span>条码扫描</span>
+        </a>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item comments disabled" ng-click="click('comments')">
+          <i class="bubble" ng-show="comments.length">
+            {{comments.length}}
+          </i>
+          <i class="fa fa-comments"></i>
+          <span>条码列表</span>
+        </a>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <a class="native-item feedback" ng-click="click('feedback')">
+          <i class="bubble" ng-show="feedbacks.length">
+            {{feedbacks.length}}
+          </i>
+          <i class="fa fa-commenting"></i>
+          <span>条码绑定</span>
+        </a>
       </div>
     </div>
   </div>
-  <div ng-include src="'views/merchandise/mobile-list.html'" class="tab-body-bar merchandise-list margin-top"></div>
-
 </div>
 <div ng-include src="'views/footer.html'"></div>

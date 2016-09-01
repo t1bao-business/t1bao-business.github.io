@@ -1,50 +1,53 @@
-<div ng-include src="'views/navbar.html'"></div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
-      <div class="list-group">
-        <div ng-include src="'views/sidebar.html'"></div>
+<div class="header-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-3">
+        <a ng-href="#/merchandise/home"> <i class="fa fa-arrow-left"></i> </a>
       </div>
-    </div>
-    <div class="col-md-10">
-      <div class="row mini-header">
-        <h4 class="text-center">分类管理
-          <form class="navbar-form form-controller navbar-right hidden-xs">
-            <p><a class="btn btn-primary" data-toggle="modal" data-target="#add" ng-click="openAdd()">添加分类</a></p>
-          </form>
-        </h4>
+      <div class="col-md-6 col-xs-6">
+        <a class="btn dropdown-toggle" type="button" id="category-dropdown" data-toggle="dropdown" aria-expanded="true">
+          分类列表
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="category-dropdown">
+          <li role="presentation"><a role="menuitem" tabindex="-1" ng-href="#/merchandise/home">全部分类</a>
+          </li>
+
+          <li role="presentation" ng-repeat="category in categories">
+            <a role="menuitem" tabindex="-1" ng-href="#/merchandise/category/{{category.id}}">{{category.name}}</a>
+          </li>
+        </ul>
+
       </div>
-
-      <!--<div class="row">-->
-      <!--<div class="col-md-6">-->
-      <!--<h4>-->
-      <!--&lt;!&ndash;-->
-      <!--<ol class="breadcrumb">-->
-      <!--<a ng-href="#/dashboard/category/0/list/1" class="">根类</a>-->
-      <!--<span ng-repeat="parent in parents track by $index">&nbsp;&raquo;&nbsp;<a ng-show="$index < parents.length - 1" ng-href="#/dashboard/category/{{ parent.id }}/list/1"-->
-      <!--class="text-primary">{{parent.name}}</a>-->
-      <!--<i ng-show="$index == parents.length - 1">{{parent.name}}</i></span>-->
-      <!--</ol>-->
-      <!--&ndash;&gt;-->
-      <!--</h4>-->
-      <!--</div>-->
-      <!--</div>-->
-      <div class="row mobile-main">
-        <div class="mobile-list visible-xs" ng-include src="'views/category/mobile-list.html'"></div>
-        <div class="hidden-xs" ng-include src="'views/category/desktop-list.html'"></div>
-
-        <p class="visible-xs">
-          <a class="btn btn-default btn-clr-blue" href="#/category/add">添加分类</a>
-        </p>
+      <div class="col-md-3 col-xs-3">
+        <a ng-href="#/merchandise/search"> <i class="fa fa-search"></i> </a> &nbsp;
       </div>
-      <div ng-include src="'views/pagination.html'"></div>
-
     </div>
   </div>
 </div>
 
-<div ng-include src="'views/category/new.html'"></div>
-<div ng-include src="'views/category/edit.html'"></div>
-<div ng-include src="'views/modal.html'"></div>
+<div class="body-bar">
+  <div class="merchandise-list margin-top">
+  <div class="list list-bar"  ng-repeat="category in categories track by $index">
+  <div class="list-text-item"><span>ID:</span>{{category.id}}</div>
+  <div class="list-text-item"><span>分类名:</span>{{category.name || ""}}</div>
+  <div class="list-text-item"><span>排序号:</span>{{category.order || ""}}</div>
+  <div class="list-text-item">
+    <button class="btn btn-warning" ng-show="!category.online"
+            ng-click="online(category);$event.stopPropagation()">上线
+    </button>
+    <button class="btn btn-success" ng-show="category.online"
+            ng-click="offline(category);$event.stopPropagation()">下线
+    </button>
+
+    <a class="btn btn-info" href="#/category/edit/{{category.id}}">修改
+    </a>
+    <button class="btn btn-danger" ng-click="remove(category);$event.stopPropagation()">删除</button>
+  </div>
+</div>
+  </div>
+
+</div>
+<div ng-include src="'views/footer.html'"></div>
+
+
+
