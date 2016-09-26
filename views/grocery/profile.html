@@ -15,7 +15,7 @@
     <span>门店地址:</span> {{grocery.address}} &nbsp;
   </div>
   <div class="list-text-item">
-    <span>门店介绍:</span> {{grocery.intro}} &nbsp;
+    <span>门店介绍:</span><i class="text-left">{{grocery.intro}} &nbsp;</i>
   </div>
   <div class="list-text-item">
     <span>门店logo:</span>
@@ -48,7 +48,18 @@
       <i ng-switch-when="REJECTED">审核未通过</i>
       <i ng-switch-when="UNCHECKED">尚未审核</i>
       <i ng-switch-default>尚未审核</i>
+    </code>
+  </div>
+  <div class="list-text-item">
+    <span>上线管理:</span>
+
+    <code class="form-control-static" ng-switch on="grocery.online">
+      <i ng-switch-when="true">已上线</i>
+      <i ng-switch-when="false">未上线</i>
     </code> &nbsp;
+    <button class="btn btn-default" ng-show="grocery.online" ng-click="offline()">下线</button>
+    <button class="btn btn-default" ng-show="!grocery.online" ng-click="online()">上线</button>
+
   </div>
 </div>
 <div class="container">

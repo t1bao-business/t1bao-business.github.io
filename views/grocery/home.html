@@ -5,7 +5,7 @@
         <!--<i class="ifa ifa-scan" ng-click="scan()"></i>-->
       </div>
       <div class="col-md-6 col-xs-6">
-        店铺管理
+        我的店铺
       </div>
       <div class="col-md-3 col-xs-3">
         <!--<i class="fa fa-refresh" ng-click="reload()"></i>-->
@@ -38,12 +38,9 @@
     </div>
     <div class="row menu">
       <div class="col-md-4 col-xs-4">
-        <a class="native-item system-message disabled" ng-click="click('messages')">
-          <i class="bubble" ng-show="messages.length">
-            {{messages.length}}
-          </i>
-          <i class="fa fa-envelope"></i>
-          <span>系统消息</span>
+        <a class="native-item barcode" ng-click="click('search')">
+          <i class="fa fa-search"></i>
+          <span>搜索</span>
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
@@ -87,6 +84,13 @@
     </div>
     <div class="row menu">
       <div class="col-md-4 col-xs-4">
+        <a class="native-item system-message disabled" ng-click="click('messages')">
+          <i class="bubble" ng-show="messages.length">
+            {{messages.length}}
+          </i>
+          <i class="fa fa-envelope"></i>
+          <span>系统消息</span>
+        </a>
       </div>
       <div class="col-md-4 col-xs-4">
         <a class="native-item income disabled" ng-click="click('income')">

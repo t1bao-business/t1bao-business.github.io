@@ -37,22 +37,24 @@
             <label for="phone">输入注册手机号</label>
             <input type="text" required class="form-control" id="phone" placeholder="请输入注册手机号" name="phone" ng-model="phone">
           </div>
-          <p class="center" ng-show="checked">
-            <button type="button" class="btn btn-danger btn-block" ng-click="retrieve(retrievePhone)">找回密码</button>
+          <p class="center">
+            <button type="button" class="btn btn-danger btn-block" ng-class="{disabled: !checked}" ng-click="retrieve(retrievePhone)">找回密码</button>
           </p>
           <!--<p class="center">
             <a ng-click="retrievePassword()" ng-show="!retrievePhone">通过手机找回</a>
             <a ng-click="retrieveSwitch(false)" ng-show="retrievePhone">通过邮箱找回</a>
           </p>-->
+          <hr/>
+          <p class="alert-default" role="alert">
+            没有账号?马上
+            <a class="btn btn-warning" href="#/user/register">注册</a>
+          </p>
+          <p class="alert-primary text-right" role="alert">
+            已经有账号？马上
+            <a class="btn btn-default" href="#/user/login">登录</a>
+          </p>
         </form>
-        <p class="alert-default visible-xs-block" role="alert">
-          没有账号?马上
-          <a class="btn btn-warning btn-xs" href="#/user/register">注册</a>
-        </p>
-        <p class="alert-primary visible-xs-block text-right" role="alert">
-          已经有账号？马上
-          <a class="btn btn-default btn-xs" href="#/user/login">登录</a>
-        </p>
+
       </div>
     </div>
   </div>
