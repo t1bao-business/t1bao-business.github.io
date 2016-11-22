@@ -5,7 +5,7 @@
         <!--<i class="ifa ifa-scan" ng-click="scan()"></i>-->
       </div>
       <div class="col-md-6 col-xs-6">
-        我的店铺
+        {{ grocery.name || '我的店铺'}}
       </div>
       <div class="col-md-3 col-xs-3">
         <!--<i class="fa fa-refresh" ng-click="reload()"></i>-->
@@ -13,37 +13,98 @@
     </div>
   </div>
 </div>
-
 <div class="body-bar">
   <div class="container">
+    <!--<div class="title">店铺管理</div>-->
     <div class="row menu">
       <div class="col-md-4 col-xs-4">
-        <a class="native-item settings" ng-click="click('settings')">
-          <i class="fa fa-gear"></i>
-          <span>店铺设置</span>
+        <a class="native-item subscribers" ng-click="click('scan')">
+          <i class="fa ifa ifa-scan"></i>
+          <span>条码扫描</span>
         </a>
       </div>
       <div class="col-md-4 col-xs-4">
-        <a class="native-item position" ng-click="click('position')">
-          <i class="fa fa-map-marker"></i>
-          <span>店铺定位</span>
+        <a class="native-item merchandise" href="#/merchandise/add">
+          <i class="fa fa-plus"></i>
+          <span>添加商品</span>
         </a>
       </div>
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item preview" ng-click="click('preview')">
-          <i class="fa fa-eye"></i>
-          <span>店铺预览</span>
-        </a>
+      <div class="row menu">
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item position" href="#/category/add">
+            <i class="fa fa-plus"></i>
+            <span>添加分类</span>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="row menu">
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item barcode" ng-click="click('search')">
-          <i class="fa fa-search"></i>
-          <span>搜索</span>
-        </a>
+      <div class="row menu">
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item settings" ng-click="click('settings')">
+            <i class="fa fa-gear"></i>
+            <span>店铺设置</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item barcode" ng-click="click('share')">
+            <i class="fa fa-share-alt"></i>
+            <span>分享店铺</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item preview" ng-click="click('preview')">
+            <i class="fa fa-eye"></i>
+            <span>店铺预览</span>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 col-xs-4">
+      <!--<div class="title">二维码</div>-->
+      <div class="row menu">
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item qrcode" ng-click="click('qrcode')">
+            <i class="fa fa-qrcode"></i>
+            <span>店铺二维码</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item preview" ng-click="click('preview')">
+            <i class="fa fa-qrcode"></i>
+            <span>渠道二维码</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item qrcode" ng-click="click('qrcode')">
+            <i class="fa fa-print"></i>
+            <span>打印二维码</span>
+          </a>
+        </div>
+      </div>
+      <!--<div class="title">粉丝管理</div>-->
+      <div class="row menu">
+        <!--<div class="col-md-4 col-xs-4">
+				<a class="native-item barcode" ng-click="click('search')">
+					<i class="fa fa-search"></i>
+					<span>搜索</span>
+				</a>
+			</div>-->
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item comments" ng-click="click('subscribers')">
+            <i class="fa fa-users"></i>
+            <span>所有粉丝</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item payment" ng-click="click('subscribers')">
+            <i class="fa fa-user"></i>
+            <span>新增加粉丝</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item share" ng-click="click('subscribers')">
+            <i class="fa fa-users"></i>
+            <span>新减少粉丝</span>
+          </a>
+        </div>
+        <!--<div class="col-md-4 col-xs-4">
         <a class="native-item share" ng-click="click('share')">
           <i class="fa fa-share-alt"></i>
           <span>分享店铺</span>
@@ -54,57 +115,88 @@
           <i class="fa fa-credit-card"></i>
           <span>支付设置</span>
         </a>
+      </div>-->
       </div>
-    </div>
-    <div class="row menu">
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item subscribers" ng-click="click('subscribers')">
-          <i class="fa fa-users"></i>
-          <span>订阅用户</span>
-        </a>
-      </div>
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item comments disabled" ng-click="click('comments')">
-          <i class="bubble" ng-show="comments.length">
+      <div class="row menu">
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item subscribers" ng-click="click('subscribers')">
+            <i class="fa fa-users"></i>
+            <span>订阅用户</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item comments disabled" ng-click="click('comments')">
+            <i class="bubble" ng-show="comments.length">
             {{comments.length}}
           </i>
-          <i class="fa fa-comments"></i>
-          <span>用户评论</span>
-        </a>
-      </div>
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item feedback" ng-click="click('feedback')">
-          <i class="bubble" ng-show="feedbacks.length">
+            <i class="fa fa-comments"></i>
+            <span>用户评论</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item feedback" ng-click="click('feedback')">
+            <i class="bubble" ng-show="feedbacks.length">
             {{feedbacks.length}}
           </i>
-          <i class="fa fa-commenting"></i>
-          <span>意见反馈</span>
-        </a>
+            <i class="fa fa-commenting"></i>
+            <span>意见反馈</span>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="row menu">
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item system-message disabled" ng-click="click('messages')">
-          <i class="bubble" ng-show="messages.length">
+      <div class="title">评论管理</div>
+      <div class="row menu">
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item comments" ng-click="click('comments')">
+            <i class="bubble" ng-show="comments.length">
+            {{comments.length}}
+          </i>
+            <i class="fa fa-comments"></i>
+            <span>店铺评论</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item comments" ng-click="click('comments')">
+            <i class="bubble" ng-show="comments.length">
+            {{comments.length}}
+          </i>
+            <i class="fa fa-comments"></i>
+            <span>商品评论</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item comments" ng-click="click('comments')">
+            <i class="bubble" ng-show="comments.length">
+            {{comments.length}}
+          </i>
+            <i class="fa fa-comments"></i>
+            <span>配送评论</span>
+          </a>
+        </div>
+      </div>
+      <div class="title">统计管理</div>
+      <div class="row menu">
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item system-message" ng-click="click('messages')">
+            <i class="bubble" ng-show="messages.length">
             {{messages.length}}
           </i>
-          <i class="fa fa-envelope"></i>
-          <span>系统消息</span>
-        </a>
-      </div>
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item income disabled" ng-click="click('income')">
-          <i class="fa fa-rmb"></i>
-          <span>收入详情</span>
-        </a>
-      </div>
-      <div class="col-md-4 col-xs-4">
-        <a class="native-item traffic disabled" ng-click="click('traffic')">
-          <i class="fa fa-bar-chart"></i>
-          <span>流量统计</span>
-        </a>
+            <i class="fa fa-envelope"></i>
+            <span>系统消息</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item income disabled" ng-click="click('income')">
+            <i class="fa fa-rmb"></i>
+            <span>收入详情</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <a class="native-item traffic disabled" ng-click="click('traffic')">
+            <i class="fa fa-bar-chart"></i>
+            <span>流量统计</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div ng-include src="'views/footer.html'"></div>
+  <div ng-include src="'views/footer.html'"></div>
